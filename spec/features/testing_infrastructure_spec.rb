@@ -16,3 +16,14 @@ feature 'testing players names are displayed on-screen' do
     expect(page).to have_content("one vs. two")
   end
 end
+
+feature ' Player1 can see Player 2s hit points' do
+  scenario 'game play' do
+    visit('/')
+    fill_in :Player_1_Name, with: "one"
+    fill_in :Player_2_Name, with: "two"
+    click_button("Submit")
+
+    expect(page).to have_content("Points for player two:")
+  end
+end
